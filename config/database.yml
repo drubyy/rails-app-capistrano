@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
+  username: deploy
+  password: 1234
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: deploy_with_capistrano_development
+  database: deploy_with_capistrano
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: deploy_with_capistrano_production
-  username: deploy_with_capistrano
-  password: <%= ENV['DEPLOY_WITH_CAPISTRANO_DATABASE_PASSWORD'] %>
+  database: deploy_with_capistrano
+  username: deploy
+  password: 1234
